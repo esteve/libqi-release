@@ -380,7 +380,8 @@ add_library(qi SHARED
                  ${QITYPE_H} ${QITYPE_C}
                  ${QIM_H}    ${QIM_C}
             )
-find_package(Boost QUIET COMPONENTS chrono filesystem program_options regex system thread)
+find_package(Boost REQUIRED COMPONENTS chrono filesystem program_options regex system thread)
+include_directories(${Boost_INCLUDE_DIRS})
 target_link_libraries(qi ${Boost_LIBRARIES})
 
 if (WITH_QT5_CORE)
